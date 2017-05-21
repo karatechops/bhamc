@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:500,600|PT+Sans:400,700');
+@import './theme';
+@import 'grommet/scss/grommet-core/index';
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.grommet p:not(.grommetux-paragraph) {
+  max-width: unset;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+div {
+  max-width: 100%;
+}
+
+.grommetux-toast__status {
+  align-self: center;
+  padding: 0 !important;
+  margin-left: 12px;
+}
+
+.grommetux-tabs {
+  margin: 12px 0 0;
+}
+
+.grommetux-split__column--hidden {
+  display: none !important;
+}
+
+.grommet-logo {
+  path {
+    fill: rgba(0,0,0,.2);
+  }
+}
+
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.grommetux-box--justify-center {
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 45em) {
+  .grommetux-box--full {
+    min-height: 100vh;
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+#carousel {
+  height: 60vh;
+  max-height: 60vh;
+
+.grommet-cms-content-blocks--carousel-slide__inner-box {
+  @media screen and (max-width: 400px) {
+    width: auto;
+    height: auto;
+    margin: 12px;
+    p.grommetux-paragraph--large {
+      font-size: 20px !important;
+    }
+  }
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+    @media screen and (max-width: 720px) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+  @media screen and (max-width: 720px) {
+    height: 80vh;
+    max-height: 80vh;
+  }
+
+  .grommet-cms-content-blocks--carousel-slide__content {
+    margin: 0px;
+  }
+
+  .grommet-cms-content-blocks--carousel-slide__content-box {
+    height: 60vh;
+    max-height: 60vh;
+    @media screen and (max-width: 720px) {
+      height: 90vh;
+      max-height: 90vh;
+    }
+  }
+  .content-blocks--carousel-slide__full {
+    height: 60vh;
+    max-height: 60vh;
+    @media screen and (max-width: 720px) {
+      height: 80vh;
+      max-height: 80vh
+    }
+  }
+  .grommet-cms-content-blocks--carousel-slide__inner-box {
+    padding: 12px 48px;
+    margin: 64px;
+    @media screen and (max-width: 720px) {
+      margin: 0 48px;
+      padding: 12px;
+    }
+  }
+  .grommetux-carousel {
+    // IE11 bug fix.
+    min-width: 100%;
+
+    &__control {
+      background-color: nth($brand-neutral-colors, 4);
+      width: double($inuit-base-spacing-unit);
+      height: quarter($inuit-base-spacing-unit);
+      margin: 0 halve($inuit-base-spacing-unit);
+
+      &--active {
+        background-color: $brand-color;
+      }
+
+      circle {
+        display: none;
+      }
+    }
+    
+    .grommetux-carousel__arrow {
+      .grommetux-control-icon {
+        // Fix iOS display bug.
+        -webkit-svg-shadow: none;
+
+        polyline {
+          stroke: #707070;
+        }
+
+        @include media-query (palm) {
+          height: 32px;
+          width: 32px;
+        }
+      }
+
+      &:hover .grommetux-control-icon polyline {
+        stroke: #000;
+      }
+    }
+
+    .grommetux-button__icon {
+      // Design feedback. To be ported to grommet core.
+      background: rgba(255, 255, 255, 0.6);
+
+      svg {
+        stroke: #707070;
+      }
+    }
+    
+    @include media-query(palm) {
+      .labs__section .box--highlight {
+        box-shadow: none;
+      }
+
+      .grommetux-card p {
+        font-size: 1.9rem;
+      }
+    }
+
+    @media (max-width: 321px) {
+      .grommetux-headline {
+        font-size: 3.2rem;
+      }
+
+      .grommetux-card p {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+#carousel > section, #home-page-article > section {
+  flex: 0 1 auto;
+}
+
+#grommet-cms-content-blocks--marquee {
+  height: 71vh !important;
+  min-height: unset;
+  #grommet-cms-content-blocks--marquee__image-wrapper {
+    height: 100%;
+    @media screen and (max-width: 500px) {
+      height: 42vh !important;
+    }
+  }
+  #grommet-cms-content-blocks--marquee__image-box {
+    height: 100%;
+  }
+  #grommet-cms-content-blocks--marquee__content-box {
+    @media screen and (max-width: 500px) {
+      padding: 0;
+    }
+  }
+  h1 {
+    font-size: 4rem;
+    line-height: 1;
+    @media screen and (max-width: 720px) {
+      font-size: 2.5rem;
+    }
+  }
+  p {
+    @media screen and (max-width: 500px) {
+      display: none !important;
+    }
+  }
+}
+
+.grommetux-button--primary {
+  border-color: #01a982 !important;
+}
+
+
+// Force the split to handle scrolling on mobile
+.mobile-split-scroll {
+  @media screen and (max-width: 720px) {
+    height: 100vh;
+    overflow: auto;
+  }
+}
+
+.grommetux-menu--inline.grommetux-menu--row > *:not(.grommetux-control-icon):not(.grommetux-button) {
+  @media screen and (max-width: 400px) {
+    margin-right: 6px;
+  }
+}

@@ -1,0 +1,23 @@
+exports[`<RootApp /> should render with children 1`] = `
+<AppContainer>
+  <App
+    centered={false}>
+    👶👶👶👶
+    <Connect(ErrorHandler) />
+    <Connect(UserNotifications) />
+  </App>
+</AppContainer>
+`;
+
+exports[`<RootApp /> should render with home app children 1`] = `
+<AppContainer>
+  <App
+    centered={false}>
+    <HomeApp>
+      👶👶👶👶
+    </HomeApp>
+    <Connect(ErrorHandler) />
+    <Connect(UserNotifications) />
+  </App>
+</AppContainer>
+`;
