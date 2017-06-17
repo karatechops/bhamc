@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Spinning from 'grommet/components/icons/Spinning';
+import Box from 'grommet/components/Box';
 import Announcement from 'components/Announcement';
+import WithLoading from 'components/WithLoading';
 import * as AnnouncementsAcctions from './actions';
 
 export class Announcements extends Component {
@@ -20,12 +21,14 @@ export class Announcements extends Component {
           key={`announcement-${id}`}
         />,
       )
-      : <Spinning size="medium" />;
+      : undefined;
 
     return (
-      <div>
-        {error || posts}
-      </div>
+      <Box align="center">
+        <WithLoading request={request}>
+          {error || posts}
+        </WithLoading>
+      </Box>
     );
   }
 }

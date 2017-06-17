@@ -21,8 +21,7 @@ export default class HomePage extends Component {
             Our Statement
           </Heading>
         </Box>
-        <Box size={{ width: 'xlarge' }} align="center">
-          <Box pad="small" />
+        <Box size={{ width: 'xlarge' }} align="center" pad="medium">
           <Heading tag="h3" margin="none">
             {HomeCopy.quote}
           </Heading>
