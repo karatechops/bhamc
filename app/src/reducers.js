@@ -6,12 +6,14 @@ import { reducer as formReducer } from 'redux-form';
 import api from './containers/Api/reducer';
 import announcements from './containers/Announcements/reducer';
 import reviews from './containers/Reviews/reducer';
+import doctors from './containers/Doctors/reducer';
 
 const rootReducer = combineReducers({
   /* GENERATOR: Compile all of your reducers */
   api,
-  reviews,
   announcements,
+  doctors,
+  reviews,
   routing: routerReducer,
   form: formReducer,
 });
