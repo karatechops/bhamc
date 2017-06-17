@@ -5,6 +5,7 @@ import Paragraph from 'components/Paragraph';
 import Announcements from 'containers/Announcements';
 import Reviews from 'containers/Reviews';
 import HomeCopy from './messages';
+import bhamc from './bhamc.jpg';
 
 export default class HomePage extends Component {
   static fetchData() {
@@ -29,6 +30,7 @@ export default class HomePage extends Component {
           <Paragraph>
             {HomeCopy.statement}
           </Paragraph>
+          <img src={bhamc} alt="BHAMC" style={{ width: '100%' }} />
         </Box>
         <Box
           pad="medium"
