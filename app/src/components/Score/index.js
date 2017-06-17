@@ -16,18 +16,18 @@ export const Score = ({ value }) => {
 
   return (
     <Box direction="row" responsive={false}>
-      {starsArray.length > 0 && starsArray.map((star) => {
+      {starsArray.length > 0 && starsArray.map((star, index) => {
         if (star) {
-          return <FilledStarIcon colorIndex="accent-1" />;
+          return <FilledStarIcon colorIndex="accent-1" key={`star-${index}`} />;
         }
-        return <StarIcon colorIndex="grey-4-a" />;
+        return <StarIcon colorIndex="grey-4-a" key={`star-${index}`} />;
       })}
     </Box>
   );
 };
 
 Score.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default Score;

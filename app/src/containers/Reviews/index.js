@@ -13,7 +13,7 @@ export class Reviews extends Component {
   render() {
     const { data, error, request } = this.props;
 
-    const posts = (!request && data.reviews && data.reviews.length > 0)
+    const posts = (!request && data && data.reviews.length > 0)
       ? data.reviews.map(({ person, score, review, date }, postIndex) =>
         <Review
           date={date}

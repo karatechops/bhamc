@@ -3,7 +3,7 @@ import * as ActionTypes from './constants';
 const initialState = {
   request: false,
   error: '',
-  data: [],
+  data: undefined,
 };
 
 export function reviews(state = initialState, action) {
