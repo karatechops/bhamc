@@ -16,6 +16,22 @@ if (typeof System === 'undefined') {
 }
 /* eslint-enable */
 
+function hashLinkScroll() {
+  if (typeof window !== 'undefined') {
+    const { hash } = window.location;
+    if (hash !== '') {
+      // Push onto callback queue so it runs after the DOM is updated,
+      // this is required when navigating from a different page so that
+      // the element is rendered on the page before trying to getElementById.
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView();
+      }, 0);
+    }
+  }
+}
+
 // Switching to system.import to make use of dynamic tree shaking
 // https://medium.com/modus-create-front-end-development/automatic-code-splitting-for-react-router-w-es6-imports-a0abdaa491e9#.msrxv8fwd
 const errorLoading = err =>
@@ -29,6 +45,7 @@ export const routes = [
   {
     component: RootApp,
     path: '/',
+    indexRoute: { onEnter: (nextState, replace) => replace('/home') },
     getComponent(location, callback) {
       System.import('./containers/RootApp') // eslint-disable-line block-scoped-var
         .then(loadRoute(callback))
@@ -51,6 +68,14 @@ export const routes = [
             .catch(err => errorLoading(err));
         },
       },
+      {
+        path: '/news',
+        getComponent(location, callback) {
+          System.import('./pages/NewsPage')  // eslint-disable-line block-scoped-var
+            .then(loadRoute(callback))
+            .catch(err => errorLoading(err));
+        },
+      },
     ],
   },
 ];
@@ -60,6 +85,9 @@ const RouterApp = props => (
     <Router
       history={history}
       routes={routes}
+      onUpdate={() => {
+        hashLinkScroll();
+      }}
     />
   </Provider>
 );

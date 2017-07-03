@@ -3,10 +3,10 @@ import * as ActionTypes from './constants';
 const initialState = {
   request: false,
   error: '',
-  data: [],
+  data: {},
 };
 
-export function doctors(state = initialState, action) {
+export function newsletter(state = initialState, action) {
   switch (action.type) {
     case ActionTypes.LOAD_DATA_INITIATION:
       return {
@@ -30,4 +30,4 @@ export function doctors(state = initialState, action) {
   }
 }
 
-export default doctors;
+export default newsletter;

@@ -4,7 +4,7 @@ import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
 import Anchor from '../Anchor';
 
-export const Nav = () => // eslint-disable-line
+export const Nav = () =>
   <Header
     pad={{
       horizontal: 'medium',
@@ -25,13 +25,34 @@ export const Nav = () => // eslint-disable-line
       }}
       size={{ width: 'xlarge' }}
     >
-      <Anchor label="Home" />
-      <Anchor label="Doctors" />
-      <Anchor label="News" />
-      <Anchor label="Pet Care" />
-      <Anchor label="Forms" />
-      <Anchor label="Store" />
-      <Anchor label="About Us" />
+      <Anchor
+        label="Home"
+        path="/"
+      />
+      <Anchor
+        label="Doctors"
+        path="/doctors"
+      />
+      <Anchor
+        label="News"
+        path="news"
+      />
+      <Anchor
+        label="Pet Care"
+        path="pet-care"
+      />
+      <Anchor
+        label="Forms"
+        path="forms"
+      />
+      <Anchor
+        label="Store"
+        path="store"
+      />
+      <Anchor
+        label="About Us"
+        path="about-us"
+      />
     </Box>
   </Header>;
 

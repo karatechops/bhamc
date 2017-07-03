@@ -7,6 +7,7 @@ import api from './containers/Api/reducer';
 import announcements from './containers/Announcements/reducer';
 import reviews from './containers/Reviews/reducer';
 import doctors from './containers/Doctors/reducer';
+import newsletter from './containers/Newsletter/reducer';
 
 const rootReducer = combineReducers({
   /* GENERATOR: Compile all of your reducers */
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   announcements,
   doctors,
   reviews,
+  newsletter,
   routing: routerReducer,
   form: formReducer,
 });
