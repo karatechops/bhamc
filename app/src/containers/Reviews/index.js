@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
-import Review from 'components/Review';
-import WithLoading from 'components/WithLoading';
+import { Pagination } from 'containers';
+import { Review, WithLoading } from 'components';
 import * as ReviewsAcctions from './actions';
 
 export class Reviews extends Component {
@@ -29,6 +29,11 @@ export class Reviews extends Component {
       <Box align="center">
         <WithLoading request={request}>
           {error || posts}
+          <Pagination
+            currentPage={1}
+            pageViewCount={7}
+            pageCount={84}
+          />
         </WithLoading>
       </Box>
     );
