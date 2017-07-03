@@ -11,7 +11,7 @@ export class Pagination extends Component {
 
     this.handlePageClick = this.handlePageClick.bind(this);
   }
-  getLabels(currentPage, pageViewCount) {
+  getLabels(currentPage, pageViewCount, pageCount) {
     const pageLinks = [];
     const startingCount = (currentPage > pageViewCount)
      ? currentPage - Math.floor(pageViewCount / 2)
@@ -20,10 +20,12 @@ export class Pagination extends Component {
       ? (startingCount + pageViewCount) - 1
       : pageViewCount;
     for (let label = startingCount; label <= pageMax; label++) { // eslint-disable-line no-plusplus
-      pageLinks.push({
-        label,
-        disabled: currentPage === label,
-      });
+      if (label <= pageCount) {
+        pageLinks.push({
+          label,
+          disabled: currentPage === label,
+        });
+      }
     }
 
     return pageLinks;
@@ -54,11 +56,13 @@ export class Pagination extends Component {
         direction="row"
         responsive={false}
       >
-        <Button
-          plain
-          icon={<Previous />}
-          onClick={this.handlePageClick.bind(this, 'previous')}
-        />
+        { currentPage > 1 &&
+          <Button
+            plain
+            icon={<Previous />}
+            onClick={this.handlePageClick.bind(this, currentPage - 1)}
+          />
+        }
         { currentPage > Math.floor(pageViewCount / 2) + 1 &&
           <Box
             direction="row"
@@ -72,7 +76,7 @@ export class Pagination extends Component {
           </Box>
         }
         {buttons}
-        { currentPage < pageCount - pageViewCount &&
+        { currentPage < pageCount - Math.floor(pageViewCount / 2) &&
           <Box
             direction="row"
             responsive={false}
@@ -84,11 +88,13 @@ export class Pagination extends Component {
             />
           </Box>
         }
-        <Button
-          plain
-          icon={<Next />}
-          onClick={this.handlePageClick.bind(this, 'next')}
-        />
+        { currentPage !== pageCount &&
+          <Button
+            plain
+            icon={<Next />}
+            onClick={this.handlePageClick.bind(this, currentPage + 1)}
+          />
+        }
       </Box>
     );
   }

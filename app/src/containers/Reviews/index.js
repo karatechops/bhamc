@@ -6,13 +6,27 @@ import { Review, WithLoading } from 'components';
 import * as ReviewsAcctions from './actions';
 
 export class Reviews extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      curentPage: 1,
+    };
+
+    this.handlePageClick = this.handlePageClick.bind(this);
+  }
+
   componentDidMount() {
     this.props.dispatch(ReviewsAcctions.loadData());
   }
 
+  handlePageClick(currentPage) {
+    this.setState({ currentPage });
+  }
+
   render() {
     const { data, error, request } = this.props;
-
+    const { currentPage } = this.state;
     const posts = (!request && data && data.reviews.length > 0)
       ? data.reviews.map(({ person, score, review, date }, postIndex) =>
         <Review
@@ -30,9 +44,10 @@ export class Reviews extends Component {
         <WithLoading request={request}>
           {error || posts}
           <Pagination
-            currentPage={1}
+            currentPage={currentPage}
             pageViewCount={7}
             pageCount={84}
+            onClick={this.handlePageClick}
           />
         </WithLoading>
       </Box>
