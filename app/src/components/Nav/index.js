@@ -42,8 +42,8 @@ export const Nav = () =>
         path="pet-care"
       />
       <Anchor
-        label="Forms"
-        path="forms"
+        label="Links"
+        path="links"
       />
       <Anchor
         label="Store"

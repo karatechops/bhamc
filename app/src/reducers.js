@@ -9,6 +9,8 @@ import reviews from './containers/Reviews/reducer';
 import doctors from './containers/Doctors/reducer';
 import newsletter from './containers/Newsletter/reducer';
 import articles from './containers/Articles/reducer';
+import forms from './containers/Forms/reducer';
+import links from './containers/Links/reducer';
 
 const rootReducer = combineReducers({
   /* GENERATOR: Compile all of your reducers */
@@ -16,6 +18,8 @@ const rootReducer = combineReducers({
   announcements,
   articles,
   doctors,
+  forms,
+  links,
   reviews,
   newsletter,
   routing: routerReducer,
