@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
-import Heading from 'grommet/components/Heading';
 import WithLoading from 'components/WithLoading';
+import { Article } from 'components';
 import * as ArticlesActions from './actions';
 
 export class Articles extends Component {
@@ -17,18 +17,12 @@ export class Articles extends Component {
     const { data, error, request } = this.props;
 
     const post = (!request && data && data.hasOwnProperty('html'))
-      ? <div
-        dangerouslySetInnerHTML={{ __html: data.html }}
-        style={{ width: '100%' }}
-      />
+      ? <Article __html={data.html} title={data.title} />
       : undefined;
 
     return (
       <Box align="center" full="horizontal">
         <WithLoading request={request}>
-          { data && data.title &&
-            <Heading tag="h3">{data.title}</Heading>
-          }
           {error || post}
         </WithLoading>
       </Box>
