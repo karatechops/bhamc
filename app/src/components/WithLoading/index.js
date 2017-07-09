@@ -3,7 +3,7 @@ import Box from 'grommet/components/Box';
 import Spinning from 'grommet/components/icons/Spinning';
 
 export const WithLoading = ({ request, children }) =>
-  <Box>
+  <Box style={{ width: '100%' }}>
     {request &&
       <Box pad="medium">
         <Spinning size="medium" />
