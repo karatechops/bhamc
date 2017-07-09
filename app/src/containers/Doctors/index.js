@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
 import DoctorListItem from 'components/DoctorListItem';
 import WithLoading from 'components/WithLoading';
-import * as DoctorsAcctions from './actions';
+import * as DoctorsActions from './actions';
 
 export class Doctors extends Component {
   componentDidMount() {
-    this.props.dispatch(DoctorsAcctions.loadData());
+    this.props.dispatch(DoctorsActions.loadData());
   }
 
   render() {
