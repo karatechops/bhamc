@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
-import DocumentDownloadIcon from 'grommet/components/icons/base/DocumentDownload';
+import { DownloadLink } from 'components';
 // import WithLoading from 'components/WithLoading';
 // import * as FormsActions from './actions';
 
@@ -30,23 +29,17 @@ export class Forms extends Component {
         {/* <WithLoading request={request}>
           {error || posts}
         </WithLoading> */}
-        <Anchor
+        <DownloadLink
           label="Anesthesia and Surgical Consent Form"
           href="http://bhamc.com/docs/Anesth%20and%20Surgical%20Consent%20Form.pdf"
-          reverse
-          icon={<DocumentDownloadIcon />}
         />
-        <Anchor
+        <DownloadLink
           label="Drop-Off Consent Form"
           href="http://bhamc.com/docs/Drop-Off%20Consent%20Form.pdf"
-          reverse
-          icon={<DocumentDownloadIcon />}
         />
-        <Anchor
+        <DownloadLink
           label="Boarding Consent Form"
           href="http://bhamc.com/docs/BoardingDropOffForm.pdf"
-          reverse
-          icon={<DocumentDownloadIcon />}
         />
       </Box>
     );
