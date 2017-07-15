@@ -1,39 +1,41 @@
 import React, { PropTypes } from 'react';
 import Box from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
 import Heading from 'grommet/components/Heading';
-import Paragraph from 'components/Paragraph';
 
-export const DoctorListItem = ({ biography, name, profile }) =>
+export const DoctorListItem = ({ name, profile, id }) =>
   <Box
-    direction="row"
     pad={{
       between: 'medium',
+      vertical: 'medium',
     }}
+    textAlign="center"
+    basis="1/3"
   >
-    <Box>
-      <img
-        src={profile.original}
-        style={{
-          minHeight: '150px',
-          minWidth: '150px',
-        }}
-        alt={name}
-      />
-    </Box>
-    <Box>
-      <Heading tag="h2" margin="none">
-        {name}
-      </Heading>
-      <Paragraph
-        dangerouslySetInnerHTML={{ __html: biography }}
-        margin="none"
-      />
-    </Box>
+    <Button path={`/doctor/${id}`}>
+      <Box align="center">
+        <img
+          src={profile.original}
+          style={{
+            minHeight: '150px',
+            minWidth: '150px',
+            height: '150px',
+            width: '150px',
+          }}
+          alt={name}
+        />
+      </Box>
+      <Box>
+        <Heading tag="h3" margin="small">
+          {name}
+        </Heading>
+      </Box>
+    </Button>
   </Box>;
 
 DoctorListItem.propTypes = {
-  biography: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   profile: PropTypes.shape({
     original: PropTypes.string,
   }),

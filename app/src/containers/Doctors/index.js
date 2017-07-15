@@ -19,6 +19,7 @@ export class Doctors extends Component {
           biography={biography}
           name={name}
           profile={profile}
+          id={id}
           key={`doctor-${id}`}
         />,
       )
@@ -27,7 +28,15 @@ export class Doctors extends Component {
     return (
       <Box align="center">
         <WithLoading request={request}>
-          {error || posts}
+          {error ||
+            <Box
+              wrap
+              full="horizontal"
+              direction="row"
+            >
+              {posts}
+            </Box>
+        }
         </WithLoading>
       </Box>
     );

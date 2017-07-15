@@ -69,6 +69,14 @@ export const routes = [
         },
       },
       {
+        path: '/doctor/:id',
+        getComponent(location, callback) {
+          System.import('./pages/DoctorPage')  // eslint-disable-line block-scoped-var
+            .then(loadRoute(callback))
+            .catch(err => errorLoading(err));
+        },
+      },
+      {
         path: '/news',
         getComponent(location, callback) {
           System.import('./pages/NewsPage')  // eslint-disable-line block-scoped-var

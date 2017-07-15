@@ -2,6 +2,7 @@
 export Announcements from './Announcements';
 export Articles from './Articles';
 export Doctors from './Doctors';
+export Doctor from './Doctor';
 export Forms from './Forms';
 export Links from './Links';
 export Newsletter from './Newsletter';
