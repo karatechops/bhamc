@@ -1,6 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import Box from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
 import Heading from 'grommet/components/Heading';
-import Menu from 'grommet/components/Menu';
+import Layer from 'grommet/components/Layer';
 import MenuIcon from 'grommet/components/icons/base/Menu';
 import Anchor from '../Anchor';
 import { DesktopNav, MobileNav, Header } from './styles';
@@ -36,73 +38,93 @@ const links = [
   },
 ];
 
-export const Nav = ({ path: currentPath }) =>
-  <Header
-    pad={{
-      horizontal: 'medium',
-      vertical: 'medium',
-    }}
-    colorIndex="neutral-1"
-  >
-    <MobileNav
-      flex
-      align="end"
-      alignSelf="end"
-    >
-      <Menu
-        responsive={false}
-        inline={false}
-        icon={<MenuIcon />}
-        dropAlign={{ right: 'right', top: 'top' }}
+class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      layer: false,
+    };
+  }
+  render() {
+    const { layer } = this.state;
+    const { path: currentPath } = this.props;
+    return (
+      <Header
+        pad={{
+          horizontal: 'medium',
+          vertical: 'medium',
+        }}
+        colorIndex="neutral-1"
       >
-        { links.map(({ label, path }, index) =>
-          <Anchor
-            label={label}
-            path={path}
-            key={`mobile-link-${index}`}
-            style={{
-              textAlign: 'right',
-              color: (path === currentPath)
-                ? '#fff'
-                : '',
-              background: (path === currentPath)
-                ? '#38424e'
-                : '',
-            }}
-          />,
-        )}
-      </Menu>
-    </MobileNav>
-    <Heading tag="h3" margin="none">
-      Belle Haven Animal Medical Centre
-    </Heading>
-    <DesktopNav
-      flex
-      justify="end"
-      direction="row"
-      responsive={false}
-      pad={{
-        between: 'medium',
-      }}
-      size={{ width: 'xlarge' }}
-    >
-      { links.map(({ label, path }, index) =>
-        <Anchor
-          label={label}
-          path={path}
-          key={`desktop-link-${index}`}
-          style={{
-            textDecoration: (path === currentPath)
-              ? 'underline'
-              : 'none',
-            color: (path === currentPath)
-              ? '#fff'
-              : '',
+        <MobileNav
+          flex
+          align="end"
+          alignSelf="end"
+        >
+          <Button onClick={() => this.setState({ layer: !layer })} icon={<MenuIcon />} />
+          { layer &&
+            <Layer
+              closer
+              onClose={() => this.setState({ layer: !layer })}
+            >
+              <Box full justify="center">
+                <Box pad="large" />
+                { links.map(({ label, path }, index) =>
+                  <Anchor
+                    label={label}
+                    path={path}
+                    key={`mobile-link-${index}`}
+                    onClick={() => this.setState({ layer: !layer })}
+                    style={{
+                      padding: '12px',
+                      fontSize: '24px',
+                      textAlign: 'center',
+                      color: (path === currentPath)
+                        ? '#fff'
+                        : '',
+                      background: (path === currentPath)
+                        ? '#38424e'
+                        : '',
+                    }}
+                  />,
+                )}
+              </Box>
+            </Layer>
+          }
+        </MobileNav>
+        <Heading tag="h3" margin="none">
+          Belle Haven Animal Medical Centre
+        </Heading>
+        <DesktopNav
+          flex
+          justify="end"
+          direction="row"
+          responsive={false}
+          pad={{
+            between: 'medium',
           }}
-        />,
-      )}
-    </DesktopNav>
-  </Header>;
+          size={{ width: 'xlarge' }}
+        >
+          { links.map(({ label, path }, index) =>
+            <Anchor
+              label={label}
+              path={path}
+              key={`desktop-link-${index}`}
+              style={{
+                textDecoration: (path === currentPath)
+                  ? 'underline'
+                  : 'none',
+                color: (path === currentPath)
+                  ? '#fff'
+                  : '',
+              }}
+            />,
+          )}
+        </DesktopNav>
+      </Header>
+    );
+  }
+}
 
 Nav.propTypes = {
   path: PropTypes.string.isRequired,
