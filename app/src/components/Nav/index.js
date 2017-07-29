@@ -55,10 +55,11 @@ export const Nav = ({ path: currentPath }) =>
         icon={<MenuIcon />}
         dropAlign={{ right: 'right', top: 'top' }}
       >
-        { links.map(({ label, path }) =>
+        { links.map(({ label, path }, index) =>
           <Anchor
             label={label}
             path={path}
+            key={`mobile-link-${index}`}
             style={{
               textAlign: 'right',
               color: (path === currentPath)
@@ -85,10 +86,11 @@ export const Nav = ({ path: currentPath }) =>
       }}
       size={{ width: 'xlarge' }}
     >
-      { links.map(({ label, path }) =>
+      { links.map(({ label, path }, index) =>
         <Anchor
           label={label}
           path={path}
+          key={`desktop-link-${index}`}
           style={{
             textDecoration: (path === currentPath)
               ? 'underline'

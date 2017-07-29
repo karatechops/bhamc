@@ -16,7 +16,7 @@ export const Footer = () =>
       between: 'large',
     }}
     colorIndex="neutral-1"
-    align="start"
+    align="center"
     justify="center"
     responsive
   >
