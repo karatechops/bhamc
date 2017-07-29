@@ -7,7 +7,7 @@ const PageMarquee = ({ image }) =>
   <Box
     full="horizontal"
     colorIndex="grey-1"
-    texture={image || defaultHero}
+    texture={image}
     size={{ height: 'medium' }}
     align="center"
     justify="center"
@@ -23,6 +23,10 @@ const PageMarquee = ({ image }) =>
 
 PageMarquee.propTypes = {
   image: PropTypes.string,
+};
+
+PageMarquee.defaultProps = {
+  image: defaultHero,
 };
 
 export default PageMarquee;
