@@ -29,6 +29,7 @@ export default class HomePage extends Component {
           <Box pad="small" />
           <Announcements />
         </Box>
+        <Box id="reviews" />
         <SectionHeader title="Reviews" />
         <Box size={{ width: 'xlarge' }}>
           <Box pad="small" />

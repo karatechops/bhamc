@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import Box from 'grommet/components/Box';
 import { Pagination } from 'containers';
 import { Review, WithLoading } from 'components';
@@ -23,7 +24,8 @@ export class Reviews extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { currentPage } = this.state;
     if (prevState.currentPage !== currentPage) {
-      this.props.dispatch(ReviewsAcctions.loadData(currentPage));
+      this.props.dispatch(ReviewsAcctions.loadData(currentPage))
+      .then(() => browserHistory.push('/home#reviews'));
     }
   }
 
@@ -48,7 +50,7 @@ export class Reviews extends Component {
 
     return (
       <Box align="center">
-        <WithLoading request={request}>
+        <WithLoading request={request} willSwap>
           {error || posts}
           <Pagination
             currentPage={currentPage}
