@@ -1,11 +1,10 @@
 import React from 'react';
 import GrommetFooter from 'grommet/components/Footer';
 import Anchor from 'grommet/components/Anchor';
-import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
 import MapIcon from 'grommet/components/icons/base/Map';
-import { FooterLogo, Divider } from './styles';
+import { FooterLogo, Divider, FooterColumn } from './styles';
 import aahaLogo from './aaha.jpg';
 
 export const Footer = () =>
@@ -16,11 +15,12 @@ export const Footer = () =>
       between: 'large',
     }}
     colorIndex="neutral-1"
-    align="center"
+    align="start"
     justify="center"
+    full="horizontal"
     responsive
   >
-    <Box>
+    <FooterColumn>
       <Heading tag="h3" margin="small">
         Hospital Hours
       </Heading>
@@ -34,8 +34,8 @@ export const Footer = () =>
       <Paragraph margin="none">
         Appointments Preferred
       </Paragraph>
-    </Box>
-    <Box>
+    </FooterColumn>
+    <FooterColumn>
       <Heading tag="h3" margin="small">
         Location
       </Heading>
@@ -58,8 +58,8 @@ export const Footer = () =>
           fontSize: '16px',
         }}
       />
-    </Box>
-    <Box>
+    </FooterColumn>
+    <FooterColumn>
       <Heading tag="h3" margin="small">
         Contact
       </Heading>
@@ -70,10 +70,10 @@ export const Footer = () =>
       <Paragraph margin="none">
         E-mail: info@bhamc.com
       </Paragraph>
-    </Box>
-    <Box alignSelf="center">
+    </FooterColumn>
+    <FooterColumn alignSelf="center">
       <FooterLogo src={aahaLogo} />
-    </Box>
+    </FooterColumn>
   </GrommetFooter>;
 
 export default Footer;
