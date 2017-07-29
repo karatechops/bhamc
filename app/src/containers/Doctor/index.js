@@ -6,51 +6,6 @@ import WithLoading from 'components/WithLoading';
 import ImageGallery from 'containers/ImageGallery';
 import * as DoctorsActions from '../Doctors/actions';
 
-const IMAGES = [
-  {
-    title: 'pets 1',
-    description: 'pets 1',
-    original: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/original/schutt1.jpg?1491083769',
-    thumb: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/thumb/schutt1.jpg?1491083769',
-    icon: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/icon/schutt1.jpg?149108376'
-  },
-  {
-    title: 'pets 1',
-    description: 'pets 1',
-    original: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/original/schutt1.jpg?1491083769',
-    thumb: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/thumb/schutt1.jpg?1491083769',
-    icon: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/icon/schutt1.jpg?149108376'
-  },
-  {
-    title: 'pets 1',
-    description: 'pets 1',
-    original: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/original/schutt1.jpg?1491083769',
-    thumb: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/thumb/schutt1.jpg?1491083769',
-    icon: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/icon/schutt1.jpg?149108376'
-  },
-  {
-    title: 'pets 1',
-    description: 'pets 1',
-    original: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/original/schutt1.jpg?1491083769',
-    thumb: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/thumb/schutt1.jpg?1491083769',
-    icon: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/icon/schutt1.jpg?149108376'
-  },
-  {
-    title: 'pets 1',
-    description: 'pets 1',
-    original: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/original/schutt1.jpg?1491083769',
-    thumb: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/thumb/schutt1.jpg?1491083769',
-    icon: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/icon/schutt1.jpg?149108376'
-  },
-  {
-    title: 'pets 1',
-    description: 'pets 1',
-    original: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/original/schutt1.jpg?1491083769',
-    thumb: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/thumb/schutt1.jpg?1491083769',
-    icon: 'https://s3.amazonaws.com/bhamc-assets/images/photos/000/000/004/icon/schutt1.jpg?149108376'
-  },
-];
-
 export class Doctor extends Component {
   componentDidMount() {
     this.props.dispatch(DoctorsActions.loadData());

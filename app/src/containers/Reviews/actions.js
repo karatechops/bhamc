@@ -14,12 +14,12 @@ export const loadDataFailure = error => ({
   error,
 });
 
-export const loadData = () =>
+export const loadData = page =>
   (dispatch, getState) => {
     const { apiUrl } = getState().api;
     dispatch(loadDataInitiation());
 
-    return fetch(`${apiUrl}/reviews.json`)
+    return fetch(`${apiUrl}/reviews.json?page=${page}`)
       .then(response =>
         response.json().then(json => ({
           status: response.status,

@@ -10,7 +10,7 @@ export class Reviews extends Component {
     super(props);
 
     this.state = {
-      curentPage: 1,
+      currentPage: 1,
     };
 
     this.handlePageClick = this.handlePageClick.bind(this);
@@ -18,6 +18,13 @@ export class Reviews extends Component {
 
   componentDidMount() {
     this.props.dispatch(ReviewsAcctions.loadData());
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { currentPage } = this.state;
+    if (prevState.currentPage !== currentPage) {
+      this.props.dispatch(ReviewsAcctions.loadData(currentPage));
+    }
   }
 
   handlePageClick(currentPage) {
