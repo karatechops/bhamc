@@ -1,14 +1,17 @@
 import React from 'react';
-import GrommetFooter from 'grommet/components/Footer';
 import Anchor from 'grommet/components/Anchor';
+import Box from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
 import MapIcon from 'grommet/components/icons/base/Map';
-import { FooterLogo, Divider, FooterColumn } from './styles';
+import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
+import SocialFacebookIcon from 'grommet/components/icons/base/SocialFacebookOption';
+import { FooterLogo, Divider, FooterColumn, StyledFooter } from './styles';
 import aahaLogo from './aaha.jpg';
 
 export const Footer = () =>
-  <GrommetFooter
+  <StyledFooter
     pad={{
       horizontal: 'medium',
       vertical: 'medium',
@@ -18,7 +21,6 @@ export const Footer = () =>
     align="start"
     justify="center"
     full="horizontal"
-    responsive
   >
     <FooterColumn>
       <Heading tag="h3" margin="small">
@@ -71,9 +73,47 @@ export const Footer = () =>
         E-mail: info@bhamc.com
       </Paragraph>
     </FooterColumn>
+    <FooterColumn>
+      <Heading tag="h3" margin="small">
+        Social
+      </Heading>
+      <Divider />
+      <Box pad={{ between: 'small' }}>
+        <Button href="https://twitter.com/bhamcvet" rel="noopener noreferer">
+          <Box
+            direction="row"
+            responsive={false}
+            pad={{
+              between: 'small',
+              horizontal: 'small',
+            }}
+          >
+            <SocialTwitterIcon style={{ verticalAlign: 'middle' }} />
+            <Paragraph margin="none">
+              Twitter
+            </Paragraph>
+          </Box>
+        </Button>
+        <Button href="https://www.facebook.com/BHAMC" rel="noopener noreferer">
+          <Box
+            direction="row"
+            responsive={false}
+            pad={{
+              between: 'small',
+              horizontal: 'small',
+            }}
+          >
+            <SocialFacebookIcon style={{ verticalAlign: 'middle' }} />
+            <Paragraph margin="none">
+              Facebook
+            </Paragraph>
+          </Box>
+        </Button>
+      </Box>
+    </FooterColumn>
     <FooterColumn alignSelf="center">
       <FooterLogo src={aahaLogo} />
     </FooterColumn>
-  </GrommetFooter>;
+  </StyledFooter>;
 
 export default Footer;
