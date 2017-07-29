@@ -18,7 +18,7 @@ class RootApp extends Component {
             flexDirection: 'column',
           }}
         >
-          <Nav />
+          <Nav path={this.props.location.pathname} />
           <Box flex style={{ minHeight: '100%' }}>
             <PageMarquee />
             <Box flex>
@@ -34,6 +34,9 @@ class RootApp extends Component {
 
 RootApp.propTypes = {
   children: PropTypes.node.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
 };
 
 export default RootApp;
