@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
-import Box from 'grommet/components/Box';
-import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
+import Menu from 'grommet/components/Menu';
+import MenuIcon from 'grommet/components/icons/base/Menu';
 import Anchor from '../Anchor';
+import { DesktopNav, MobileNav, Header } from './styles';
 
 const links = [
   {
@@ -43,10 +44,38 @@ export const Nav = ({ path: currentPath }) =>
     }}
     colorIndex="neutral-1"
   >
+    <MobileNav
+      flex
+      align="end"
+      alignSelf="end"
+    >
+      <Menu
+        responsive={false}
+        inline={false}
+        icon={<MenuIcon />}
+        dropAlign={{ right: 'right', top: 'top' }}
+      >
+        { links.map(({ label, path }) =>
+          <Anchor
+            label={label}
+            path={path}
+            style={{
+              textAlign: 'right',
+              color: (path === currentPath)
+                ? '#fff'
+                : '',
+              background: (path === currentPath)
+                ? '#38424e'
+                : '',
+            }}
+          />,
+        )}
+      </Menu>
+    </MobileNav>
     <Heading tag="h3" margin="none">
       Belle Haven Animal Medical Centre
     </Heading>
-    <Box
+    <DesktopNav
       flex
       justify="end"
       direction="row"
@@ -70,7 +99,7 @@ export const Nav = ({ path: currentPath }) =>
           }}
         />,
       )}
-    </Box>
+    </DesktopNav>
   </Header>;
 
 Nav.propTypes = {
