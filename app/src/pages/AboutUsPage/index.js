@@ -53,10 +53,12 @@ export default class AboutUsPage extends Component {
               scrolling="no"
               marginHeight="0"
               marginWidth="0"
+              style={{ background: '#eee' }}
               src="http://maps.google.com/maps?q=1221+Belle+Haven+Road+Alexandria,+VA+22307&amp;oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;hq=&amp;hnear=1221+Belle+Haven+Rd,+Alexandria,+Virginia+22307&amp;gl=us&amp;ll=38.785937,-77.057076&amp;spn=0.047636,0.103683&amp;z=14&amp;output=embed&amp;iwloc=near&amp;addr&amp;"
             />
           </Box>
         </Box>
+        <Box pad="small" />
       </Box>
     );
   }
