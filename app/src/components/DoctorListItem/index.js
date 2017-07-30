@@ -22,6 +22,7 @@ export const DoctorListItem = ({ name, profile, id }) =>
             minWidth: '150px',
             height: '150px',
             width: '150px',
+            borderRadius: '150px',
             background: `url("${profile && profile.original ? profile.original : defaultProfile}")  no-repeat`,
             backgroundSize: 'cover',
           }}
