@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Heading from 'grommet/components/Heading';
-import { PageMarqueeContainer } from './styles'; 
+import { PageMarqueeContainer } from './styles';
 import defaultHero from '../../../images/bhamc-hero.jpg';
 
 const PageMarquee = ({ image }) =>

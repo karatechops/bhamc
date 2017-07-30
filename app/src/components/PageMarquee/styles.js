@@ -7,3 +7,5 @@ export const PageMarqueeContainer = styled(Box)`
     height: 384px;
   }
 `;
+
+export default PageMarqueeContainer;

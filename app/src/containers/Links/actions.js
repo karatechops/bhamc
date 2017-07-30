@@ -19,7 +19,7 @@ export const loadData = () =>
     const { apiUrl } = getState().api;
     dispatch(loadDataInitiation());
 
-    return fetch(`${apiUrl}/forms.json`)
+    return fetch(`${apiUrl}/links.json`)
       .then(response =>
         response.json().then(json => ({
           status: response.status,

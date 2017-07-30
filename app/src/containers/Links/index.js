@@ -3,75 +3,57 @@ import { connect } from 'react-redux';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
-// import WithLoading from 'components/WithLoading';
-// import * as FormsActions from './actions';
+import WithLoading from 'components/WithLoading';
+import * as LinksActions from './actions';
 
 export class Links extends Component {
   componentDidMount() {
-    // this.props.dispatch(FormsActions.loadData());
+    this.props.dispatch(LinksActions.loadData());
+  }
+
+  renderFilteredPosts(data, filter) {
+    return data.map(({ id, link_type: linkType, text, url }) =>
+      linkType === filter &&
+      <Anchor
+        label={text}
+        href={url}
+        target="_blank"
+        rel="noopener noreferer"
+        key={id}
+      />);
   }
 
   render() {
-    // const { data, error, request } = this.props;
-
-    /* const posts = (!request && data.length > 0)
-      ? data.map(({ biography, name, profile, id }) =>
-        <DoctorListItem
-          biography={biography}
-          name={name}
-          profile={profile}
-          key={`doctor-${id}`}
-        />,
-      )
-      : undefined;*/
+    const { data, error, request } = this.props;
 
     return (
       <Box align="center" pad={{ between: 'small' }}>
-        {/* <WithLoading request={request}>
-          {error || posts}
-        </WithLoading> */}
-        <Box align="center">
-          <Heading tag="h3" margin="small">
-            Referrals
-          </Heading>
-          <Anchor
-            label="Ronald K. Fallon, DVM"
-            href="http://ambulatoryveterinarysurgery.com/"
-            target="_blank"
-          />
-        </Box>
-        <Box align="center">
-          <Heading tag="h3" margin="small">
-            Insurance Companies
-          </Heading>
-          <Box pad={{ between: 'medium' }} align="center">
-            <Anchor
-              label="Healthy Paws Pet Insurance & Foundation"
-              href="http://www.gohealthypaws.com/"
-              target="_blank"
-            />
-            <Anchor
-              label="Embrace Pet Insurance"
-              href="http://www.embracepetinsurance.com/"
-              target="_blank"
-            />
-            <Anchor
-              label="Pets Best Insurance"
-              href="https://www.petsbest.com/"
-              target="_blank"
-            />
-          </Box>
-        </Box>
-        <Box align="center">
-          <Heading tag="h3" margin="small">
-            Other Links
-          </Heading>
-          <Anchor
-            label="Christian Veterinary Mission"
-            href="http://cvmusa.org/"
-            target="_blank"
-          />
-        </Box>
+        <WithLoading request={request}>
+          {error ||
+            <Box>
+              <Box align="center">
+                <Heading tag="h3" margin="small">
+                  Referrals
+                </Heading>
+                { this.renderFilteredPosts(data, 'referral') }
+              </Box>
+              <Box align="center">
+                <Heading tag="h3" margin="small">
+                  Insurance Companies
+                </Heading>
+                <Box pad={{ between: 'medium' }} align="center">
+                  { this.renderFilteredPosts(data, 'insurance') }
+                </Box>
+              </Box>
+              <Box align="center">
+                <Heading tag="h3" margin="small">
+                  Other Links
+                </Heading>
+                { this.renderFilteredPosts(data, 'other') }
+              </Box>
+            </Box>
+          }
+        </WithLoading>
         <Box pad="small" />
       </Box>
     );
@@ -79,7 +61,7 @@ export class Links extends Component {
 }
 
 function mapStateToProps(state) {
-  const { request, error, data } = state.doctors;
+  const { request, error, data } = state.links;
   return {
     request, error, data,
   };
