@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import Image from 'grommet/components/Image';
+import Paragraph from 'grommet/components/Paragraph';
 import { ImageThumb } from 'components';
 
 export class ImageGallery extends Component {
@@ -39,6 +40,20 @@ export class ImageGallery extends Component {
         >
           <Image src={images[activeIndex].original} />
         </Box>
+        { images[activeIndex].description &&
+          <Box
+            align="center"
+            colorIndex="light-2"
+            pad={{
+              horizontal: 'small',
+            }}
+            textAlign="center"
+          >
+            <Paragraph size="large" margin="small">
+              {images[activeIndex].description}
+            </Paragraph>
+          </Box>
+        }
         { imageThumbs &&
           <Box
             pad={{
@@ -46,6 +61,7 @@ export class ImageGallery extends Component {
             }}
             direction="row"
             justify="center"
+            responsive={false}
             wrap
           >
             {imageThumbs}
