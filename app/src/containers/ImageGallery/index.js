@@ -31,7 +31,7 @@ export class ImageGallery extends Component {
               activeIndex,
             });
           });
-        }, 500);
+        }, 350);
       });
     }
   }
