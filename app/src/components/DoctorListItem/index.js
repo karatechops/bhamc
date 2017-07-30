@@ -15,15 +15,15 @@ export const DoctorListItem = ({ name, profile, id }) =>
   >
     <Button path={`/doctor/${id}`}>
       <Box align="center">
-        <img
-          src={profile && profile.original ? profile.original : defaultProfile}
+        <div
           style={{
             minHeight: '150px',
             minWidth: '150px',
             height: '150px',
             width: '150px',
+            background: `url("${profile && profile.original ? profile.original : defaultProfile}")  no-repeat`,
+            backgroundSize: 'cover',
           }}
-          alt={name}
         />
       </Box>
       <Box>
