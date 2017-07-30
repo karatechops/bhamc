@@ -9,6 +9,7 @@ export const DoctorListItem = ({ name, profile, id }) =>
     pad={{
       between: 'medium',
       vertical: 'medium',
+      horizontal: 'medium',
     }}
     textAlign="center"
     basis="1/3"

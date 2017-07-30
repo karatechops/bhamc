@@ -33,6 +33,8 @@ export class Doctors extends Component {
               wrap
               full="horizontal"
               direction="row"
+              responsive={false}
+              justify="center"
             >
               {posts}
             </Box>
