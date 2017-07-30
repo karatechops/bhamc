@@ -23,6 +23,7 @@ module.exports = {
     "no-console": 0,
     "no-prototype-builtins": 0,
     "no-confusing-arrow": 0,
+    "no-return-assign": 0,
     "import/no-named-as-default": 0,
     "import/no-unresolved": 0,
     "import/no-duplicates": 0,

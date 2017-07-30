@@ -7,10 +7,8 @@ const ImageThumb = styled.div`
   margin-bottom: 12px;
   box-sizing: border-box;
   background: url("${props => props.path}") no-repeat;
+  border: ${props => props.active ? '2px solid #ffdb44' : 'none'}
   background-size: cover;
 `;
 
 export default ImageThumb;
-
-// border: ${props => props.active ? '2px solid #ffdb44' : 'none'}
-// background: url(${props => props.src}) no-repeat cover;

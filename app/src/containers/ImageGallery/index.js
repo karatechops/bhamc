@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import Image from 'grommet/components/Image';
@@ -10,15 +11,34 @@ export class ImageGallery extends Component {
     super(props);
     this.state = {
       activeIndex: 0,
+      galleryHeight: 'auto',
+      imageOpacity: 1,
     };
     this.onImageClick = this.onImageClick.bind(this);
   }
+  componentDidMount() {
+    this.setState({ galleryHeight: findDOMNode(this.imageRef).offsetHeight + 24 }); // eslint-disable-line
+  }
   onImageClick(activeIndex) {
-    this.setState({ activeIndex });
+    this.setState({
+      imageOpacity: 0,
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          activeIndex,
+        }, () => {
+          this.setState({
+            galleryHeight: findDOMNode(this.imageRef).offsetHeight + 24,
+            imageOpacity: 1,
+            activeIndex,
+          });
+        });
+      }, 500);
+    });
   }
   render() {
     const { images } = this.props;
-    const { activeIndex } = this.state;
+    const { activeIndex, galleryHeight, imageOpacity } = this.state;
     const imageThumbs = (images && images.length > 0)
       ? images.map((image, imageIndex) =>
         <Button
@@ -27,6 +47,7 @@ export class ImageGallery extends Component {
         >
           <ImageThumb
             path={image.original}
+            active={imageIndex === activeIndex}
           />
         </Button>)
       : undefined;
@@ -37,8 +58,20 @@ export class ImageGallery extends Component {
           colorIndex="light-2"
           pad="medium"
           align="center"
+          style={{
+            height: galleryHeight,
+            transition: 'height .25s ease-out',
+            overflow: 'hidden',
+          }}
         >
-          <Image src={images[activeIndex].original} />
+          <Image
+            ref={imageRef => this.imageRef = imageRef}
+            src={images[activeIndex].original}
+            style={{
+              transition: 'opacity .5s ease-out',
+              opacity: imageOpacity,
+            }}
+          />
         </Box>
         { images[activeIndex].description &&
           <Box
