@@ -4,6 +4,7 @@ export Article from './Article';
 export DoctorListItem from './DoctorListItem';
 export DoctorPost from './DoctorPost';
 export DownloadLink from './DownloadLink';
+export ImageThumb from './ImageThumb';
 export Nav from './Nav';
 export PageMarquee from './PageMarquee';
 export Paragraph from './Paragraph';

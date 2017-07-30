@@ -23,7 +23,6 @@ export class Doctor extends Component {
         biography={doctor.biography}
         name={doctor.name}
         profile={doctor.profile}
-        onImageClick={this.onImageClick}
       />
       : undefined;
 
