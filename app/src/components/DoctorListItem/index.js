@@ -14,7 +14,7 @@ export const DoctorListItem = ({ name, profile, id }) =>
     textAlign="center"
     basis="1/3"
   >
-    <Button path={`/doctor/${id}`}>
+    <Button path={`/doctors/${id}`}>
       <Box align="center">
         <div
           style={{

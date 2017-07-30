@@ -41,9 +41,14 @@ class Nav extends Component {
       layer: false,
     };
   }
+  getPathRoot(path) {
+    console.log(`/${path.split('/')[1]}`)
+    return `/${path.split('/')[1]}`;
+  }
   render() {
     const { layer } = this.state;
     const { path: currentPath } = this.props;
+    const currentPathRoot = this.getPathRoot(currentPath);
     return (
       <Header
         pad={{
@@ -75,10 +80,10 @@ class Nav extends Component {
                       padding: '12px',
                       fontSize: '24px',
                       textAlign: 'center',
-                      color: (path === currentPath)
+                      color: (path === currentPathRoot)
                         ? '#fff'
                         : '',
-                      background: (path === currentPath)
+                      background: (path === currentPathRoot)
                         ? '#38424e'
                         : '',
                     }}
@@ -107,10 +112,10 @@ class Nav extends Component {
               path={path}
               key={`desktop-link-${index}`}
               style={{
-                textDecoration: (path === currentPath)
+                textDecoration: (path === currentPathRoot)
                   ? 'underline'
                   : 'none',
-                color: (path === currentPath)
+                color: (path === currentPathRoot)
                   ? '#fff'
                   : '',
               }}
