@@ -17,21 +17,23 @@ export class ImageGallery extends Component {
     this.onImageClick = this.onImageClick.bind(this);
   }
   onImageClick(activeIndex) {
-    this.setState({
-      imageOpacity: 0,
-    }, () => {
-      setTimeout(() => {
-        this.setState({
-          activeIndex,
-        }, () => {
+    if (activeIndex !== this.state.activeIndex) {
+      this.setState({
+        imageOpacity: 0,
+      }, () => {
+        setTimeout(() => {
           this.setState({
-            galleryHeight: findDOMNode(this.imageRef).offsetHeight + 24,
-            imageOpacity: 1,
             activeIndex,
+          }, () => {
+            this.setState({
+              galleryHeight: findDOMNode(this.imageRef).offsetHeight + 24,
+              imageOpacity: 1,
+              activeIndex,
+            });
           });
-        });
-      }, 500);
-    });
+        }, 500);
+      });
+    }
   }
   render() {
     const { images } = this.props;

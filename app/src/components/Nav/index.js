@@ -29,10 +29,6 @@ const links = [
     path: '/links',
   },
   {
-    label: 'Store',
-    path: '/store',
-  },
-  {
     label: 'About Us',
     path: '/about-us',
   },
