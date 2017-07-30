@@ -16,9 +16,6 @@ export class ImageGallery extends Component {
     };
     this.onImageClick = this.onImageClick.bind(this);
   }
-  componentDidMount() {
-    this.setState({ galleryHeight: findDOMNode(this.imageRef).offsetHeight + 24 }); // eslint-disable-line
-  }
   onImageClick(activeIndex) {
     this.setState({
       imageOpacity: 0,
@@ -65,10 +62,15 @@ export class ImageGallery extends Component {
           }}
         >
           <Image
+            onLoad={() =>
+              this.setState({
+                galleryHeight: findDOMNode(this.imageRef).offsetHeight + 24,
+              },
+            )}
             ref={imageRef => this.imageRef = imageRef}
             src={images[activeIndex].original}
             style={{
-              transition: 'opacity .5s ease-out',
+              transition: 'opacity .5s linear',
               opacity: imageOpacity,
             }}
           />
