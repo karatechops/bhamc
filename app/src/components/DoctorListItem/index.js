@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import Heading from 'grommet/components/Heading';
+import defaultProfile from './default-user-image.png';
 
 export const DoctorListItem = ({ name, profile, id }) =>
   <Box
@@ -15,7 +16,7 @@ export const DoctorListItem = ({ name, profile, id }) =>
     <Button path={`/doctor/${id}`}>
       <Box align="center">
         <img
-          src={profile.original}
+          src={profile && profile.original ? profile.original : defaultProfile}
           style={{
             minHeight: '150px',
             minWidth: '150px',
