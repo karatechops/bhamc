@@ -11,6 +11,7 @@ import newsletter from './containers/Newsletter/reducer';
 import articles from './containers/Articles/reducer';
 import forms from './containers/Forms/reducer';
 import links from './containers/Links/reducer';
+import jobPostings from './containers/JobPostings/reducer';
 
 const rootReducer = combineReducers({
   /* GENERATOR: Compile all of your reducers */
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   links,
   reviews,
   newsletter,
+  jobPostings,
   routing: routerReducer,
   form: formReducer,
 });

@@ -29,6 +29,10 @@ const links = [
     path: '/links',
   },
   {
+    label: 'Careers',
+    path: '/careers',
+  },
+  {
     label: 'About Us',
     path: '/about-us',
   },
@@ -42,7 +46,6 @@ class Nav extends Component {
     };
   }
   getPathRoot(path) {
-    console.log(`/${path.split('/')[1]}`)
     return `/${path.split('/')[1]}`;
   }
   render() {

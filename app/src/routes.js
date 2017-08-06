@@ -101,6 +101,14 @@ export const routes = [
         },
       },
       {
+        path: '/careers',
+        getComponent(location, callback) {
+          System.import('./pages/CareersPage')  // eslint-disable-line block-scoped-var
+            .then(loadRoute(callback))
+            .catch(err => errorLoading(err));
+        },
+      },
+      {
         path: '/about-us',
         getComponent(location, callback) {
           System.import('./pages/AboutUsPage')  // eslint-disable-line block-scoped-var

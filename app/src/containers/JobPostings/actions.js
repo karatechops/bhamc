@@ -19,7 +19,7 @@ export const loadData = () =>
     const { apiUrl } = getState().api;
     dispatch(loadDataInitiation());
 
-    return fetch(`${apiUrl}/newsletter.json`)
+    return fetch(`${apiUrl}/jobs.json`)
       .then(response =>
         response.json().then(json => ({
           status: response.status,

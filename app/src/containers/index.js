@@ -5,6 +5,7 @@ export Doctors from './Doctors';
 export Doctor from './Doctor';
 export Forms from './Forms';
 export ImageGallery from './ImageGallery';
+export JobPostings from './JobPostings';
 export Links from './Links';
 export Newsletter from './Newsletter';
 export Pagination from './Pagination';

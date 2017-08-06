@@ -21,7 +21,6 @@ export const NewsletterSection = ({ title, content }) =>
         icon={<UpIcon />}
         path="/news#table-of-contents"
         label="Table of Contents"
-        colorIndex="accent-2"
         plain
       />
     </Box>

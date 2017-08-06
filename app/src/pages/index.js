@@ -6,3 +6,4 @@ export LinksPage from './LinksPage';
 export NewsPage from './NewsPage';
 export PetCarePage from './PetCarePage';
 export AboutUsPage from './AboutUsPage';
+export CareersPage from './CareersPage';
