@@ -10,7 +10,7 @@ function Html({ content, state, scriptHash, vendorHash, cssHash, styles }) {
         <meta httpEquiv="Content-Language" content="en" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="web_section_id" content="R11935" />
-        <title>Brand Central</title>
+        <title>Belle Haven Animal Medial Centre</title>
         <link href={`${cssHash}`} rel="stylesheet" />
         <style dangerouslySetInnerHTML={{ __html: styles }} />
       </head>
