@@ -3,7 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import GrommetApp from 'grommet/components/App';
 import Box from 'grommet/components/Box';
 import { AppContainer as ReactHotLoader } from 'react-hot-loader';
-import { Nav, PageMarquee, Footer } from 'components';
+import { PageMarquee } from 'containers';
+import { Nav, Footer } from 'components';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class RootApp extends Component {
@@ -20,7 +21,7 @@ class RootApp extends Component {
         >
           <Nav path={this.props.location.pathname} />
           <Box flex style={{ minHeight: '100%' }}>
-            <PageMarquee />
+            <PageMarquee path={this.props.location.pathname} />
             <Box flex>
               {this.props.children}
             </Box>

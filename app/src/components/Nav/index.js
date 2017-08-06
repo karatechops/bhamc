@@ -96,7 +96,7 @@ class Nav extends Component {
             </Layer>
           }
         </MobileNav>
-        <Heading tag="h3" margin="none">
+        <Heading className="header-title" tag="h3" margin="none">
           Belle Haven Animal Medical Centre
         </Heading>
         <DesktopNav

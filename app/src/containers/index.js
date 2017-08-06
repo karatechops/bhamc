@@ -8,6 +8,7 @@ export ImageGallery from './ImageGallery';
 export JobPostings from './JobPostings';
 export Links from './Links';
 export Newsletter from './Newsletter';
+export PageMarquee from './PageMarquee';
 export Pagination from './Pagination';
 export Reviews from './Reviews';
 export RootApp from './RootApp';

@@ -17,6 +17,11 @@ export const MobileNav = styled(Box)`
   a {
     text-align: right;
   }
+  button {
+    background: rgba(56, 66, 78, 0.25);
+    border-radius: 100px;
+    margin: 5px;
+  }
 `;
 
 export const Header = styled(GrommetHeader)`
@@ -30,7 +35,7 @@ export const Header = styled(GrommetHeader)`
   height: auto;
   min-height: auto;
   
-  .grommetux-heading {
+  .header-title {
     display: none;
   }
 
@@ -38,9 +43,9 @@ export const Header = styled(GrommetHeader)`
     flex-direction: row;
     padding: 12px;
     min-height: 72px;
-    background: rgba(56, 66, 78, 0.85);
+    background: rgb(56, 66, 78);
 
-    .grommetux-heading {
+    .header-title {
       display: block;
     }
   }

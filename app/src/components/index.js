@@ -7,7 +7,7 @@ export DownloadLink from './DownloadLink';
 export ImageThumb from './ImageThumb';
 export JobPosting from './JobPosting';
 export Nav from './Nav';
-export PageMarquee from './PageMarquee';
+export Marquee from './Marquee';
 export Paragraph from './Paragraph';
 export NewsletterSection from './NewsletterSection';
 export FilledStarIcon from './FilledStarIcon';
