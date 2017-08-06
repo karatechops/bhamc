@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
-import Next from 'grommet/components/Icons/base/Next';
-import Previous from 'grommet/components/Icons/base/Previous';
+import Next from 'grommet/components/icons/base/Next';
+import Previous from 'grommet/components/icons/base/Previous';
 
 export class Pagination extends Component {
   constructor(props) {
