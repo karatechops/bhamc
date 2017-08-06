@@ -42,7 +42,7 @@ export const loadData = (id, category) =>
         return dispatch(loadDataSuccess(json));
       }, error =>
         dispatch(
-          loadDataFailure({ message: `There was an error processing your request: ${error}` }),
+          loadDataFailure(`There was an error processing your request: ${error}`),
         ),
     );
   };

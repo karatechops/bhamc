@@ -8,8 +8,6 @@ import { initialState as devApi } from './containers/Api/reducer';
 const api = (typeof window === 'undefined')
   ? {
     apiUrl: process.env.API_URL,
-    passportUrl: process.env.PASSPORT_API_URL,
-    cmsUrl: process.env.CMS_API_URL,
   }
   : devApi;
 

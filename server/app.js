@@ -96,7 +96,8 @@ app.use((req, res) => {
             />
           );
           res.status(200).send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
-        });
+        })
+        .catch(err => console.log(err));
       } else {
         res.status(404).send('Not found');
       }
