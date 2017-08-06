@@ -1,26 +1,31 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
-import DoctorListItem from 'components/DoctorListItem';
-import WithLoading from 'components/WithLoading';
-import * as DoctorsActions from './actions';
+import { JobPosting, WithLoading } from 'components';
+import * as JobPostingsActions from './actions';
 
-export class Doctors extends Component {
+export class JobPostings extends Component {
   componentDidMount() {
-    this.props.dispatch(DoctorsActions.loadData());
+    this.props.dispatch(JobPostingsActions.loadData());
   }
 
   render() {
     const { data, error, request } = this.props;
 
     const posts = (!request && data.length > 0)
-      ? data.map(({ biography, name, profile, id }) =>
-        <DoctorListItem
-          biography={biography}
-          name={name}
-          profile={profile}
-          id={id}
-          key={`doctor-${id}`}
+      ? data.map(({
+        title,
+        contact_email: contactEmail,
+        contact_phone: contactPhone,
+        description,
+        id,
+      }) =>
+        <JobPosting
+          title={title}
+          contactEmail={contactEmail}
+          contactPhone={contactPhone}
+          description={description}
+          key={`job-${id}`}
         />,
       )
       : undefined;
@@ -46,18 +51,20 @@ export class Doctors extends Component {
 }
 
 function mapStateToProps(state) {
-  const { request, error, data } = state.doctors;
+  const { request, error, data } = state.jobPostings;
   return {
     request, error, data,
   };
 }
 
-Doctors.propTypes = {
+JobPostings.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
+      description: PropTypes.string,
+      contact_email: PropTypes.string,
+      contact_phone: PropTypes.string,
       title: PropTypes.string,
-      paragraph: PropTypes.string,
     }),
   ),
   dispatch: PropTypes.func,
@@ -65,4 +72,4 @@ Doctors.propTypes = {
   request: PropTypes.bool,
 };
 
-export default connect(mapStateToProps)(Doctors);
+export default connect(mapStateToProps)(JobPostings);
