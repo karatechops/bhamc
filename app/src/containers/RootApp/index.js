@@ -21,7 +21,9 @@ class RootApp extends Component {
         >
           <Nav path={this.props.location.pathname} />
           <Box flex style={{ minHeight: '100%' }}>
-            <PageMarquee path={this.props.location.pathname} />
+            { typeof window !== 'undefined' &&
+              <PageMarquee path={this.props.location.pathname} />
+            }
             <Box flex>
               {this.props.children}
             </Box>

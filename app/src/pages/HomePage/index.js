@@ -14,7 +14,7 @@ export default class HomePage extends Component {
   static fetchData() {
     return [
       AnnouncementsActions.loadData(),
-      ReviewsActions.loadData(),
+      ReviewsActions.loadData(0),
     ];
   }
   render() {
