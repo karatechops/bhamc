@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
+import Paragraph from 'grommet/components/Paragraph';
 import { Pagination } from 'containers';
 import { Review, WithLoading } from 'components';
 import * as ReviewsAcctions from './actions';
@@ -59,6 +61,19 @@ export class Reviews extends Component {
             onClick={this.handlePageClick}
           />
         </WithLoading>
+        <Box pad="medium">
+          <Paragraph size="small" margin="none">
+            Reviews are exclusively&nbsp;
+            <Anchor
+              href="http://www.demandforce.com/review-policy/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              certified by Demandforce, Inc.
+            </Anchor>
+            &nbsp;to be from our clients.
+          </Paragraph>
+        </Box>
       </Box>
     );
   }
