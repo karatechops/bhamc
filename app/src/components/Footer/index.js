@@ -112,7 +112,9 @@ export const Footer = () =>
       </Box>
     </FooterColumn>
     <FooterColumn alignSelf="center">
-      <FooterLogo src={aahaLogo} />
+      { typeof window !== 'undefined' &&
+        <FooterLogo src={aahaLogo} />
+      }
     </FooterColumn>
   </StyledFooter>;
 

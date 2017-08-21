@@ -9,7 +9,9 @@ import * as NewsletterAcctions from './actions';
 
 export class Newsletter extends Component {
   componentDidMount() {
-    this.props.dispatch(NewsletterAcctions.loadData());
+    if (!this.props.data || !this.props.data.table_of_contents) {
+      this.props.dispatch(NewsletterAcctions.loadData());
+    }
   }
   render() {
     const { data, error, request } = this.props;

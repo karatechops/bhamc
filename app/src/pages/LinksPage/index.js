@@ -3,9 +3,13 @@ import Box from 'grommet/components/Box';
 import Forms from 'containers/Forms';
 import Links from 'containers/Links';
 import { SectionHeader } from 'components';
+import * as LinksActions from 'containers/Links/actions';
 
 export default class LinksPage extends Component {
   static fetchData() {
+    return [
+      LinksActions.loadData(),
+    ];
   }
   render() {
     return (

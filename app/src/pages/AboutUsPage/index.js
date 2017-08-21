@@ -3,9 +3,7 @@ import Box from 'grommet/components/Box';
 import Paragraph from 'grommet/components/Paragraph';
 import { SectionHeader } from 'components';
 
-export default class AboutUsPage extends Component {
-  static fetchData() {
-  }
+export default class AboutUsPage extends Component { // eslint-disable-line
   render() {
     return (
       <Box
