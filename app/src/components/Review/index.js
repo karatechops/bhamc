@@ -6,7 +6,14 @@ import Score from 'components/Score';
 import { prettyDate } from 'utils';
 
 export const Review = ({ person, review, date, score }) =>
-  <Box size="xlarge" pad="small" full="horizontal">
+  <Box
+    size="xlarge"
+    pad={{
+      vertical: 'small',
+      horizontal: 'medium',
+    }}
+    full="horizontal"
+  >
     <Box direction="row" justify="between">
       <Heading tag="h3" style={{ textTransform: 'capitalize' }}>
         {person}

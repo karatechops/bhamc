@@ -31,9 +31,9 @@ export class Doctors extends Component {
           {error ||
             <Box
               wrap
+              responsive
               full="horizontal"
               direction="row"
-              responsive={false}
               justify="center"
             >
               {posts}

@@ -22,7 +22,7 @@ export class Forms extends Component {
           key={`doctor-${id}`}
         />,
       )
-      : undefined;*/
+      : undefined; */
 
     return (
       <Box align="center" pad={{ between: 'medium' }}>

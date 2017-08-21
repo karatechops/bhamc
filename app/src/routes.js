@@ -1,4 +1,4 @@
-/* global System b:true */
+/* global System b:true */ // eslint-disable-line
 import React from 'react';
 import { Router } from 'react-router';
 import { Provider } from 'react-redux';

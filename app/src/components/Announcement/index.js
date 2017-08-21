@@ -4,7 +4,15 @@ import Heading from 'grommet/components/Heading';
 
 /* eslint-disable react/no-danger */
 const Announcement = ({ title, paragraph }) =>
-  <Box pad="small">
+  <Box
+    pad={{
+      horizontal: 'medium',
+      vertical: 'small',
+    }}
+    style={{
+      overflow: 'hidden',
+    }}
+  >
     <Heading tag="h3" margin="none">
       {title}
     </Heading>
